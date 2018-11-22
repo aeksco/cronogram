@@ -7,6 +7,8 @@ export const NEW_TASK = {
   description: '',
   script: `module.exports = async function(cronogram) {
   const message = 'Hello, world!'
+
+  // Invokes cronogram.done({ ... }) to dispatch an email with your result
   return cronogram.done({ text: message });
 }`
 }
@@ -17,6 +19,8 @@ export const EXAMPLES = [
     dependencies: [],
     script: `module.exports = async function(cronogram) {
   const message = 'Hello, world!'
+
+  // Invokes cronogram.done({ ... }) to dispatch an email with your result
   return cronogram.done({ text: message });
 }`
   },
