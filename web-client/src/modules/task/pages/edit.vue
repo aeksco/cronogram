@@ -32,6 +32,7 @@
       <div class="col-sm-6 text-right">
 
         <b-button
+          size="lg"
           to="/tasks"
           variant="light"
           class="mr-2"

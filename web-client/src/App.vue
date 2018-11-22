@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <AppNavbar/>
-    <router-view/>
+    <router-view class='mt-4'/>
     <NotificationList/>
   </div>
 </template>

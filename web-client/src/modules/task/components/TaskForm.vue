@@ -17,7 +17,7 @@
           <!-- Schedule -->
           <!-- <span class='text-danger'>*</span>        </label> -->
         <!-- <small class="form-text text-muted mb-2">The cron schedule for this task</small> -->
-        <select type="text" class="form-control" placeholder="Schedule" v-model="model.cron">
+        <select type="text" class="form-control form-control-lg" placeholder="Schedule" v-model="model.cron">
           <option :value="c.value" v-for="c in schedules">{{ c.label }}</option>
         </select>
       </div>
@@ -25,7 +25,7 @@
 
     <div class="col-sm-8 text-right">
 
-      <b-dropdown right text="Examples" variant="outline-info">
+      <b-dropdown right text="Examples" size="lg" variant="outline-info">
         <template slot="button-content">
           <i class="fa fa-check mr-1"></i>
           Load Example
@@ -37,6 +37,7 @@
 
       <b-button
         :disabled="!model.label"
+        size="lg"
         variant="warning"
         @click="testTask({ task: model, email: false })"
       >
@@ -46,6 +47,7 @@
 
       <b-button
         :disabled="!model.label"
+        size="lg"
         variant="primary"
         @click="formSubmit(model)"
       >
@@ -54,9 +56,10 @@
       </b-button>
     </div>
 
-    <div class="col-lg-12">
+    <div class="col-lg-12 mt-2">
       <monaco-editor
         class="editor"
+        size="lg"
         v-model="model.script"
         theme="vs-dark"
         language="javascript"

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" fixed="top" type="light" variant="light" class="bg-white">
+  <b-navbar toggleable="md" fixed="top" type="light" variant="light">
     <b-navbar-brand to="/">
       <strong>CRON</strong>OGRAM
     </b-navbar-brand>
