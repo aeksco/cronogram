@@ -1,0 +1,264 @@
+{
+  "info": {
+    "name": "Cronogram",
+    "_postman_id": "XX4d47e4-2976-0175-1352-cad94b31c980",
+    "description": "A Postman collection built around the Cronogram app build with Codotype.io",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "users",
+      "description": "",
+      "item": [
+        {
+          "name": "/api/users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/users",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/users",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"Username Value\",\n  \"email\": \"E-Mail Value\"\n}"
+            },
+            "url": {
+              "raw": "{{host}}/api/users",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "users"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/users/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/users/{{user-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "{{user-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/users/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/users/{{user-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "{{user-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/users/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/users/{{user-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "{{user-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "tasks",
+      "description": "",
+      "item": [
+        {
+          "name": "/api/tasks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/tasks",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label\": \"Label Value\",\n  \"dependencies\": [],\n  \"script\": \"Script Value\",\n  \"cron\": \"Schedule Value\",\n  \"description\": \"Description Value\",\n  \"user_id\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{host}}/api/tasks",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tasks"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/tasks/:id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/tasks/{{task-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{task-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/tasks/:id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/tasks/{{task-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{task-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        },
+        {
+          "name": "/api/tasks/:id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {},
+            "url": {
+              "raw": "{{host}}/api/tasks/{{task-id}}",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "api",
+                "tasks",
+                "{{task-id}}"
+              ]
+            },
+            "description": ""
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "XXab2fa-8350-4b78-b612-f822e33f4793",
+      "key": "host",
+      "value": "localhost:4000",
+      "type": "text"
+    },
+    {
+      "id": "XXab2fa-8350-4b78-b612-user",
+      "key": "user-id",
+      "value": "Put a User ID here",
+      "type": "text"
+    },
+    {
+      "id": "XXab2fa-8350-4b78-b612-task",
+      "key": "task-id",
+      "value": "Put a Task ID here",
+      "type": "text"
+    }
+  ]
+}
