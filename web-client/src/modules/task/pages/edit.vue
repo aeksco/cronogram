@@ -4,15 +4,16 @@
 
     <!-- Bootstrap Modal Component -->
     <b-modal
+      ok-only
       ref="testingModal"
       v-model="testing"
       :title="'Test Output'"
-      cancel-title='Cancel'
+      ok-title='Close'
     >
       <b-row>
         <b-col lg=12 class='text-center'>
           <p class="lead">The output below is what will be emailed to you</p>
-          <p class="text-left" v-if="fetching">LOADING</p>
+          <i class='fa fa-spin fa-spinner fa-lg' v-if="fetching"></i>
         </b-col>
       </b-row>
       <template v-if="!fetching">
@@ -25,13 +26,13 @@
     </b-modal>
 
     <div class="row">
-      <div class="col-sm-8">
-        <h2>Task - Edit</h2>
+      <div class="col-sm-6">
+        <h2>{{ model.label }}</h2>
       </div>
-      <div class="col-lg-4 text-right">
+      <div class="col-sm-6 text-right">
 
         <b-button
-          @click="$router.back()"
+          to="/tasks"
           variant="light"
           class="mr-2"
         >
@@ -39,28 +40,10 @@
           Back
         </b-button>
 
-        <b-button
-          :disabled="!model.label"
-          variant="warning"
-          @click="testTask({ task: model, email: false })"
-        >
-          <i class="fa fa-fw fa-cog"></i>
-          Test
-        </b-button>
-
-        <b-button
-          :disabled="!model.label"
-          variant="primary"
-          @click="formSubmit(model)"
-        >
-          <i class="fa fa-fw fa-save"></i>
-          Save Changes
-        </b-button>
-
       </div>
     </div>
 
-    <hr>
+    <hr class='mt-0'>
 
     <TaskForm :model="model" />
 
@@ -111,7 +94,6 @@ export default {
   },
   methods: mapActions({
     fetchEditModel: 'task/fetchEditModel',
-    formSubmit: 'task/updateModel',
     testTask: 'task/testModel'
   })
 }

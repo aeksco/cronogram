@@ -19,5 +19,5 @@ module.exports = async function(cronogram) {
   await browser.close();
 
   // Returns the inner text
-  return cronogram({ code: hrefs.join("\n") });
+  return cronogram.done({ code: hrefs.join("\n") });
 }

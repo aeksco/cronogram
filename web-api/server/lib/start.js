@@ -11,7 +11,7 @@ module.exports = function start() {
                 script: t.script,
                 cron: t.cron,
                 // email: t.email
-                email: 'aeksco@gmail.com'
+                email: 'aeksco@gmail.com' // TODO - MUST FIX THIS
             })
         })
 

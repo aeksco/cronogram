@@ -22,28 +22,16 @@ function add(task) {
       const cronogram = {
           done ({ text, html, code, json }) {
 
-              // Sets label
-              const label = task.label
-
               // Assembles response
               const dispatch = {
                 from: 'Cronogram <worker@cronogram.com>',
                 subject: 'Cronogram Task: ' + task.label,
                 email: task.email,
-                label: label
+                label: task.label,
+                text: text,
+                html: html,
+                json: json
               };
-
-              // Formats email output
-              if (text) {
-                dispatch.text = text
-              } else if (html) {
-                dispatch.html = `<h1>Cronogram</h1><p>Here is the output for your Cronogram task "${task.label}"</p><hr/>${html}<hr/><p>Thank you for using Cronogram :)</p>`
-              } else if (code) {
-                dispatch.html = `<h1>Cronogram</h1><p>Here is the output for your Cronogram task "${task.label}"</p><pre>${code}<pre/><p>Thank you for using Cronogram :)</p>`
-              } else if (json) {
-                dispatch.html = `<h1>Cronogram</h1><p>Here is the output for your Cronogram task "${task.label}"</p><pre>${JSON.stringify(json, null, 2)}<pre/><p>Thank you for using Cronogram :)</p>`
-              }
-
 
               // Send mailgun dispatch
               Mailer.dispatch(dispatch)
@@ -55,6 +43,7 @@ function add(task) {
 
     });
 
+    // Adds to queue
     queue[task._id] = cronTask;
 
 }

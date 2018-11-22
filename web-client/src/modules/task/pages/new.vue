@@ -2,14 +2,30 @@
   <div class="container">
 
     <div class="row">
-      <div class="col-sm-4">
-        <h2>New Task</h2>
+      <div class="col-sm-12">
+        <h4>New Task</h4>
       </div>
-      <div class="col-lg-8 text-right">
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <label class='text-muted'>
+            Enter a name for your new Task
+            <span class='text-danger'>*</span></label>
+          <input type="text" class="form-control form-control-lg" placeholder="Label" v-model="model.label">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 text-right">
 
         <b-button
           @click="$router.back()"
           variant="light"
+          size="lg"
           class="mr-2"
         >
           <i class="fa fa-fw fa-reply"></i>
@@ -18,29 +34,15 @@
 
         <b-button
           :disabled="!model.label"
-          variant="warning"
-          @click="testTask(model)"
-        >
-          <i class="fa fa-fw fa-cog"></i>
-          Test
-        </b-button>
-
-        <b-button
-          :disabled="!model.label"
           variant="primary"
+          size="lg"
           @click="formSubmit(model)"
         >
           <i class="fa fa-fw fa-plus"></i>
-          Deploy
+          Save
         </b-button>
 
       </div>
-    </div>
-
-    <hr>
-
-    <TaskForm :model="model" />
-    <div class="row">
     </div>
 
   </div>

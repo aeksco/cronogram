@@ -141,6 +141,7 @@ module.exports.test = (req, res, next) => {
 module.exports.delete = (req, res, next) => {
     return Task.remove({ _id: req.params.id })
     .then((response) => {
+        Queue.remove(req.params.id)
         return res
         .status(200)
         .send(response)

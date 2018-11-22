@@ -2,7 +2,7 @@
 // emit an event and have it handled by another Vuex module
 import router from '@/routers'
 import axios from 'axios'
-import { API_ROOT } from './constants'
+import { API_ROOT, EXAMPLES } from './constants'
 
 // // // //
 
@@ -91,7 +91,7 @@ export default {
     })
     .then(({ data }) => {
       commit('fetching', false)
-      router.push(`/tasks`)
+      router.push(`/tasks/${data._id}`)
     })
     .catch((err) => {
       commit('fetching', false)
@@ -113,6 +113,7 @@ export default {
       console.log(data)
       commit('fetching', false)
       commit('testOutput', data)
+      commit('notification/add', { message: 'Run success', context: 'success', dismissible: true }, { root: true })
       // router.back()
     })
     .catch((err) => {
@@ -132,13 +133,29 @@ export default {
     })
     .then(({ data }) => {
       commit('fetching', false)
-      router.back()
+      commit('notification/add', { message: 'Updated Task', context: 'success', dismissible: true }, { root: true })
+      // router.back()
     })
     .catch((err) => {
       commit('fetching', false)
       commit('notification/add', { message: 'Update error', context: 'danger', dismissible: true }, { root: true })
       throw err
     })
+  },
+  // Loads an example
+  loadExample ({ state, commit, rootGetters }, exampleId) {
+    let example = EXAMPLES.find(f => f.id === exampleId)
+    if (example) {
+      const editModel = {
+        _id: state.editModel._id,
+        label: state.editModel.label,
+        description: state.editModel.description,
+        cron: state.editModel.cron,
+        dependencies: example.dependencies,
+        script: example.script
+      }
+      commit('editModel', editModel)
+    }
   },
   // DELETE /api/tasks/:id
   deleteModel ({ state, commit, rootGetters }, taskModel) {

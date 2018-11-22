@@ -8,7 +8,7 @@ module.exports = async function(cronogram) {
       if (!error && response.statusCode == 200) {
           const resp = JSON.parse(body);
           const quote = resp.contents.quotes[0]
-          return cronogram({ html: `<h4>${quote.quote}</h4><br/><p>${quote.author}</p>` });
+          return cronogram.done({ html: `<h4>${quote.quote}</h4><br/><p>${quote.author}</p>` });
       }
   })
 }
