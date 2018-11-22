@@ -11,7 +11,7 @@
       </div>
 
       <div class="col-md-4 text-right">
-        <b-button variant="primary" to="/tasks/new">
+        <b-button v-if="isAuthenticated" variant="primary" to="/tasks/new">
           <i class="fa fa-fw fa-plus"></i>
           New Task
         </b-button>
@@ -49,7 +49,8 @@ export default {
   },
   computed: mapGetters({
     fetching: 'task/fetching',
-    collection: 'task/collection'
+    collection: 'task/collection',
+    isAuthenticated: 'auth/is_authenticated'
   }),
   methods: mapActions({
     fetch: 'task/fetchCollection'

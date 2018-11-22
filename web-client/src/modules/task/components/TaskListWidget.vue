@@ -22,20 +22,21 @@
       </tr>
 
       <tr v-for="m in collection" :key="m._id">
-        <td>
+        <td v-if="isAuthenticated">
           <router-link :to=" '/tasks/' + m._id ">
             {{ m.label }}
           </router-link>
         </td>
+        <td v-else>{{ m.label }}</td>
         <td>{{m.cron}}</td>
 
         <!-- Edit Task-->
         <td class='text-right'>
-          <b-button size="sm" variant="outline-primary" :to=" '/tasks/' + m._id">
+          <b-button size="sm" v-if="isAuthenticated" variant="outline-primary" :to=" '/tasks/' + m._id">
             <i class="fa fa-fw fa-eye"></i>
           </b-button>
 
-          <b-button size="sm" variant="outline-danger" v-b-modal="'modal_' + m._id">
+          <b-button size="sm" v-if="isAuthenticated" variant="outline-danger" v-b-modal="'modal_' + m._id">
             <i class="fa fa-fw fa-trash"></i>
           </b-button>
 
@@ -60,12 +61,15 @@
 <!-- // // // //  -->
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: ['collection'],
   methods: mapActions({
     onConfirmDestroy: 'task/deleteModel'
+  }),
+  computed: mapGetters({
+    isAuthenticated: 'auth/is_authenticated'
   })
 }
 </script>

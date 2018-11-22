@@ -5,13 +5,13 @@ const authorization = require('../middleware/authorization')
 // // // //
 
 // GET /tasks
-router.get('/', authorization, controller.list);
+router.get('/', controller.list);
 
 // POST /tasks
 router.post('/', authorization, controller.create);
 
 // POST /tasks/test
-router.post('/test', controller.test);
+router.post('/test', authorization, controller.test);
 
 // GET /tasks/:id
 router.get('/:id', authorization, controller.show);

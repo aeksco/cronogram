@@ -18,9 +18,14 @@
 
       <div class="row my-4">
         <div class="col-lg-12 text-center">
-          <router-link class="btn btn-lg btn-outline-dark mx-2" to="/tasks/new">
+          <router-link class="btn btn-lg btn-outline-dark mx-2" to="/tasks/new" v-if="isAuthenticated">
             <i class="fa fa-clock"></i>
             Let's get started
+          </router-link>
+
+          <router-link class="btn btn-lg btn-outline-dark mx-2" to="/auth/login" v-else>
+            <i class="fa fa-user"></i>
+            Login to get started
           </router-link>
         </div>
       </div>
@@ -31,12 +36,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'Home',
-    metaInfo: {
-      title: 'Home'
-    }
-  }
+import { mapGetters } from 'vuex'
+export default {
+  name: 'Home',
+  metaInfo: {
+    title: 'Home'
+  },
+  computed: mapGetters({
+    isAuthenticated: 'auth/is_authenticated'
+  })
+}
 </script>
 
 <style lang="sass">
