@@ -1,0 +1,129 @@
+{
+  "_id": "5bf604a30e6e3f3d9d9c1ece",
+  "label": "Cronogram",
+  "identifier": "cronogram",
+  "schemas": [
+    {
+      "_id": "SCH_1",
+      "enabled": true,
+      "label": "User",
+      "label_plural": "Users",
+      "identifier": "user",
+      "identifier_plural": "users",
+      "class_name": "User",
+      "class_name_plural": "Users",
+      "attributes": [
+        {
+          "order": 0,
+          "label": "Username",
+          "help": "The user's username",
+          "required": true,
+          "unique": true,
+          "datatype": "TEXT",
+          "datatypeOptions": {},
+          "identifier": "username",
+          "_id": "attr_265770dpskks31",
+          "locked": true
+        },
+        {
+          "order": 1,
+          "label": "E-Mail",
+          "help": "E-Mail address associated with this Contact.",
+          "required": true,
+          "unique": true,
+          "datatype": "TEXT",
+          "datatypeOptions": {},
+          "identifier": "email",
+          "_id": "attr_26577092992831",
+          "locked": true
+        }
+      ],
+      "relations": []
+    },
+    {
+      "_id": "5bf606210e6e3f3d9d9c1ecf",
+      "label": "Task",
+      "label_plural": "Tasks",
+      "identifier": "task",
+      "identifier_plural": "tasks",
+      "class_name": "Task",
+      "class_name_plural": "Tasks",
+      "relations": [
+        {
+          "id": null,
+          "order": 0,
+          "type": "BELONGS_TO",
+          "required": false,
+          "generate_reverse": true,
+          "related_schema_id": "SCH_1",
+          "reverse_relation_id": "",
+          "as": "",
+          "reverse_as": "",
+          "_id": "5bf6088a0e6e3f3d9d9c1ed2",
+          "schema_id": "5bf606210e6e3f3d9d9c1ecf"
+        }
+      ],
+      "attributes": [
+        {
+          "order": 0,
+          "label": "Label",
+          "identifier": "label",
+          "help": "",
+          "required": true,
+          "unique": true,
+          "datatype": "TEXT",
+          "datatypeOptions": {}
+        },
+        {
+          "order": 1,
+          "label": "Dependencies",
+          "identifier": "dependencies",
+          "help": "The dependent NPM packages for this script",
+          "required": false,
+          "unique": false,
+          "datatype": "STRING_ARRAY",
+          "datatypeOptions": {},
+          "_id": "5bf606580e6e3f3d9d9c1ed0"
+        },
+        {
+          "order": 2,
+          "label": "Script",
+          "identifier": "script",
+          "help": "The Node.js script this task runs",
+          "required": true,
+          "unique": false,
+          "datatype": "TEXT",
+          "datatypeOptions": {},
+          "_id": "5bf608780e6e3f3d9d9c1ed1"
+        },
+        {
+          "order": 3,
+          "label": "Schedule",
+          "identifier": "cron",
+          "help": "The cron schedule for this task",
+          "required": true,
+          "unique": false,
+          "datatype": "TEXT",
+          "datatypeOptions": {
+            "default": "00 */1 * * *"
+          },
+          "_id": "5bf609b70e6e3f3d9d9c1ed3"
+        },
+        {
+          "order": 4,
+          "label": "Description",
+          "identifier": "description",
+          "help": "The markdown description for this Task",
+          "required": false,
+          "unique": false,
+          "datatype": "TEXT",
+          "datatypeOptions": {
+            "default": ""
+          },
+          "_id": "5bf60a0f0e6e3f3d9d9c1ed4"
+        }
+      ]
+    }
+  ],
+  "seeds": []
+}
